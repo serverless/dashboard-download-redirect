@@ -1,0 +1,14 @@
+service: dashboard-download-redirect
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  region: us-west-2
+
+functions:
+  redirect:
+    handler: handler.redirect
+    events:
+      - http:
+         path: download/latest
+         method: get
